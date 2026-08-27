@@ -1,24 +1,24 @@
 @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300..800;1,300..800&family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap');
 
 /* ============================================================
-   Design Tokens — Tema "Lienxo Dark Modern" (moderno & redondeado)
+   Design Tokens — Tema "Lienxo Dark Modern" (negro + morado)
    ============================================================ */
 :root {
-  --color-bg-main: #0F1117;         /* azul/grafito profundo */
-  --color-bg-surface: #181B24;      /* superficie elevadas */
-  --color-text-primary: #F0F3F9;    /* blanco helado de alto contraste */
-  --color-text-secondary: #8E96A5;  /* gris frio tenue */
-  --color-border: #262A36;          /* borde sutil con toque azulado */
+  --color-bg-main: #0A0A0F;         /* negro profundo */
+  --color-bg-surface: #14141E;      /* superficie con leve matiz púrpura */
+  --color-text-primary: #F5F3FF;    /* blanco lavanda, alto contraste */
+  --color-text-secondary: #A1A1C2;  /* gris púrpura suave */
+  --color-border: #2A2A3E;          /* borde oscuro con toque violeta */
 
-  --color-primary: #F0F3F9;         /* contraste primario */
-  --color-primary-hover: #D8DFEE;
-  --color-primary-muted: #222736;   /* estado activo/seleccionado */
-  --color-success: #6EE7B7;         /* verde menta moderno */
-  --color-danger: #F87171;          /* rojo coral sutil */
+  --color-primary: #A855F7;         /* morado vibrante */
+  --color-primary-hover: #C084FC;   /* morado claro */
+  --color-primary-muted: #2A1A3E;   /* fondo activo/seleccionado */
+  --color-success: #6EE7B7;         /* verde menta */
+  --color-danger: #F87171;          /* rojo coral */
 
   /* Tipografías modernas */
   --font-sans: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
-  --font-serif: 'Space Grotesk', sans-serif; /* Display / Encabezados modernos */
+  --font-serif: 'Space Grotesk', sans-serif;
   --font-mono: 'JetBrains Mono', monospace;
 
   --text-h1: 2.2rem;
@@ -33,14 +33,13 @@
   --space-lg: 2rem;
   --space-xl: 3rem;
 
-  /* Bordes suaves y redondeados */
   --radius-sm: 8px;
   --radius-md: 14px;
   --radius-lg: 20px;
   --radius-pill: 9999px;
   
-  --shadow-card: 0 4px 20px -2px rgba(0, 0, 0, 0.3);
-  --shadow-floating: 0 16px 40px -8px rgba(0, 0, 0, 0.6);
+  --shadow-card: 0 4px 20px -2px rgba(0, 0, 0, 0.5);
+  --shadow-floating: 0 16px 40px -8px rgba(0, 0, 0, 0.7);
 }
 
 /* ============================================================
@@ -55,7 +54,7 @@
 body {
   font-family: var(--font-sans);
   background-color: var(--color-bg-main);
-  background-image: radial-gradient(circle at 50% 0%, rgba(38, 42, 54, 0.4) 0%, transparent 75%);
+  background-image: radial-gradient(circle at 50% 0%, rgba(168, 85, 247, 0.15) 0%, transparent 75%);
   background-repeat: no-repeat;
   color: var(--color-text-primary);
   line-height: 1.6;
@@ -144,7 +143,7 @@ header {
 
 .btn-toggle:hover {
   background-color: var(--color-primary);
-  color: #0F1117;
+  color: #0A0A0F;
   border-color: var(--color-primary);
 }
 
@@ -155,7 +154,7 @@ header {
 
 .btn-toggle.active {
   background-color: var(--color-primary);
-  color: #0F1117;
+  color: #0A0A0F;
   border-color: var(--color-primary);
 }
 
@@ -397,7 +396,7 @@ header {
 
 .category-actions .btn-edit-cat:hover {
   background-color: var(--color-primary);
-  color: #0F1117;
+  color: #0A0A0F;
   border-color: var(--color-primary);
 }
 
@@ -409,7 +408,7 @@ header {
 
 .category-actions .btn-delete-cat:hover {
   background-color: var(--color-danger);
-  color: #0F1117;
+  color: #0A0A0F;
 }
 
 .module-list {
@@ -440,7 +439,7 @@ header {
 }
 
 .module-card:hover {
-  border-color: rgba(240, 243, 249, 0.3);
+  border-color: rgba(168, 85, 247, 0.3);
   transform: translateY(-1px);
 }
 
@@ -523,7 +522,7 @@ header {
 
 .module-card .admin-actions .btn-edit:hover {
   background-color: var(--color-primary);
-  color: #0F1117;
+  color: #0A0A0F;
   border-color: var(--color-primary);
 }
 
@@ -535,7 +534,7 @@ header {
 
 .module-card .admin-actions .btn-delete:hover {
   background-color: var(--color-danger);
-  color: #0F1117;
+  color: #0A0A0F;
 }
 
 /* ============================================================
@@ -642,7 +641,7 @@ header {
   flex: 0 0 auto;
   height: 42px;
   background-color: var(--color-primary);
-  color: #0F1117;
+  color: #0A0A0F;
   border: 1px solid var(--color-primary);
   padding: 0 var(--space-md);
   border-radius: var(--radius-pill);
@@ -682,7 +681,7 @@ header {
 
 .btn-primary {
   background-color: var(--color-primary);
-  color: #0F1117;
+  color: #0A0A0F;
   border-color: var(--color-primary);
 }
 
@@ -698,7 +697,7 @@ header {
 
 .btn-success:hover {
   background-color: var(--color-success);
-  color: #0F1117;
+  color: #0A0A0F;
 }
 
 .btn-danger {
@@ -709,7 +708,7 @@ header {
 
 .btn-danger:hover {
   background-color: var(--color-danger);
-  color: #0F1117;
+  color: #0A0A0F;
 }
 
 .btn-secondary {
@@ -981,7 +980,7 @@ header {
 }
 .btn-rates:hover {
   background-color: var(--color-primary);
-  color: #0F1117;
+  color: #0A0A0F;
   border-color: var(--color-primary);
 }
 
@@ -1053,7 +1052,7 @@ dialog::backdrop {
 }
 .pf-name-btn:hover {
   background: var(--color-primary);
-  color: #0F1117;
+  color: #0A0A0F;
   border-color: var(--color-primary);
 }
 
