@@ -1,32 +1,31 @@
-@import url('https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,wght@0,400..900;1,400..900&family=Jost:wght@400;500;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300..800;1,300..800&family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap');
 
 /* ============================================================
-   Design Tokens — Tema "Lienxo Dark" (editorial oscuro)
-   Inspirado en el portafolio: fondo grafito oscuro, líneas finas,
-   tipografía serif elegante + sans-serif con tracking amplio.
+   Design Tokens — Tema "Lienxo Dark Modern" (moderno & redondeado)
    ============================================================ */
 :root {
-  --color-bg-main: #181816;         /* grafito oscuro cálido */
-  --color-bg-surface: #22211F;      /* superficies (cards, sidebar, modales) */
-  --color-text-primary: #ECEAE5;    /* blanco roto cálido */
-  --color-text-secondary: #9E998E;  /* gris cálido medio */
-  --color-border: #363430;          /* línea fina grafito */
+  --color-bg-main: #0F1117;         /* azul/grafito profundo */
+  --color-bg-surface: #181B24;      /* superficie elevadas */
+  --color-text-primary: #F0F3F9;    /* blanco helado de alto contraste */
+  --color-text-secondary: #8E96A5;  /* gris frio tenue */
+  --color-border: #262A36;          /* borde sutil con toque azulado */
 
-  --color-primary: #ECEAE5;         /* blanco roto, actúa como acento principal */
-  --color-primary-hover: #D4D1C8;
-  --color-primary-muted: #2D2B28;   /* fondo suave para selección en oscuro */
-  --color-success: #81A887;         /* verde apagado para fondo oscuro */
-  --color-danger: #D17C6F;          /* terracota apagado para fondo oscuro */
+  --color-primary: #F0F3F9;         /* contraste primario */
+  --color-primary-hover: #D8DFEE;
+  --color-primary-muted: #222736;   /* estado activo/seleccionado */
+  --color-success: #6EE7B7;         /* verde menta moderno */
+  --color-danger: #F87171;          /* rojo coral sutil */
 
-  --font-sans: 'Jost', 'Helvetica Neue', Arial, sans-serif;
-  --font-serif: 'Bodoni Moda', 'Didot', 'Playfair Display', Georgia, serif;
+  /* Tipografías modernas */
+  --font-sans: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+  --font-serif: 'Space Grotesk', sans-serif; /* Display / Encabezados modernos */
   --font-mono: 'JetBrains Mono', monospace;
 
-  --text-h1: 2.4rem;
-  --text-h2: 1.6rem;
-  --text-body: 1rem;
-  --text-small: 0.8rem;
-  --tracking-wide: 0.12em;
+  --text-h1: 2.2rem;
+  --text-h2: 1.5rem;
+  --text-body: 0.95rem;
+  --text-small: 0.825rem;
+  --tracking-wide: 0.05em;
 
   --space-xs: 0.5rem;
   --space-sm: 1rem;
@@ -34,10 +33,14 @@
   --space-lg: 2rem;
   --space-xl: 3rem;
 
-  --radius-sm: 2px;
-  --radius-md: 2px;
-  --shadow-card: none;
-  --shadow-floating: 0 12px 32px -8px rgba(0, 0, 0, 0.6);
+  /* Bordes suaves y redondeados */
+  --radius-sm: 8px;
+  --radius-md: 14px;
+  --radius-lg: 20px;
+  --radius-pill: 9999px;
+  
+  --shadow-card: 0 4px 20px -2px rgba(0, 0, 0, 0.3);
+  --shadow-floating: 0 16px 40px -8px rgba(0, 0, 0, 0.6);
 }
 
 /* ============================================================
@@ -52,12 +55,12 @@
 body {
   font-family: var(--font-sans);
   background-color: var(--color-bg-main);
-  /* grano de papel orgánico adaptado para fondo oscuro */
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='220'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix type='matrix' values='1 0 0 0 1  0 1 0 0 1  0 0 1 0 1  0 0 0 0.03 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
-  background-repeat: repeat;
+  background-image: radial-gradient(circle at 50% 0%, rgba(38, 42, 54, 0.4) 0%, transparent 75%);
+  background-repeat: no-repeat;
   color: var(--color-text-primary);
   line-height: 1.6;
   padding: var(--space-lg);
+  -webkit-font-smoothing: antialiased;
 }
 
 @media (max-width: 768px) {
@@ -85,7 +88,6 @@ body {
   margin: 0 auto;
   padding: var(--space-lg);
   background-color: transparent;
-  border-radius: 0;
 }
 
 @media (max-width: 768px) {
@@ -115,7 +117,7 @@ header {
 }
 
 .logo .logo-img {
-  height: 40px;      /* Ajusta según el tamaño deseado */
+  height: 40px;
   width: auto;
   display: block;
 }
@@ -127,34 +129,33 @@ header {
 }
 
 .btn-toggle {
-  background-color: transparent;
+  background-color: var(--color-bg-surface);
   color: var(--color-text-primary);
   border: 1px solid var(--color-border);
   padding: var(--space-xs) var(--space-md);
-  border-radius: var(--radius-sm);
-  font-weight: 500;
+  border-radius: var(--radius-pill);
+  font-weight: 600;
   font-size: var(--text-small);
   letter-spacing: var(--tracking-wide);
-  text-transform: uppercase;
   cursor: pointer;
-  transition: all 0.2s ease;
-  min-height: 44px;
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  min-height: 42px;
 }
 
 .btn-toggle:hover {
   background-color: var(--color-primary);
-  color: #181816;
+  color: #0F1117;
   border-color: var(--color-primary);
 }
 
 .btn-toggle:focus-visible {
-  outline: 1px solid var(--color-primary);
+  outline: 2px solid var(--color-primary);
   outline-offset: 2px;
 }
 
 .btn-toggle.active {
   background-color: var(--color-primary);
-  color: #181816;
+  color: #0F1117;
   border-color: var(--color-primary);
 }
 
@@ -170,18 +171,17 @@ header {
 #currency-select {
   font-family: var(--font-sans);
   font-size: var(--text-small);
-  font-weight: 500;
+  font-weight: 600;
   letter-spacing: var(--tracking-wide);
-  text-transform: uppercase;
   padding: var(--space-xs) var(--space-sm);
   border: 1px solid var(--color-border);
-  border-radius: var(--radius-sm);
+  border-radius: var(--radius-pill);
   background-color: var(--color-bg-surface);
   color: var(--color-text-primary);
   cursor: pointer;
   outline: none;
-  transition: border 0.2s ease;
-  min-height: 44px;
+  transition: all 0.2s ease;
+  min-height: 42px;
 }
 
 #currency-select:hover {
@@ -189,7 +189,7 @@ header {
 }
 
 #currency-select:focus-visible {
-  outline: 1px solid var(--color-primary);
+  outline: 2px solid var(--color-primary);
   outline-offset: 2px;
 }
 
@@ -234,7 +234,7 @@ header {
   background: var(--color-bg-surface);
   border: 1px solid var(--color-border);
   border-radius: var(--radius-md);
-  box-shadow: none;
+  box-shadow: var(--shadow-card);
   padding: var(--space-md) var(--space-lg);
   display: flex;
   flex-direction: column;
@@ -244,7 +244,7 @@ header {
 .summary-title {
   font-family: var(--font-sans);
   font-size: var(--text-small);
-  font-weight: 500;
+  font-weight: 600;
   text-transform: uppercase;
   letter-spacing: var(--tracking-wide);
   color: var(--color-text-secondary);
@@ -253,8 +253,8 @@ header {
 
 .total-amount {
   font-family: var(--font-serif);
-  font-size: 3rem;
-  font-weight: 500;
+  font-size: 2.8rem;
+  font-weight: 700;
   color: var(--color-text-primary);
   line-height: 1.2;
   word-break: break-word;
@@ -265,7 +265,7 @@ header {
   background: var(--color-bg-surface);
   border: 1px solid var(--color-border);
   border-radius: var(--radius-md);
-  box-shadow: none;
+  box-shadow: var(--shadow-card);
   padding: var(--space-md) var(--space-lg);
   display: flex;
   flex-direction: column;
@@ -329,7 +329,7 @@ header {
 
 .add-portfolio-form input {
   flex: 1 1 120px;
-  height: 36px;
+  height: 40px;
   border: 1px solid var(--color-border);
   border-radius: var(--radius-sm);
   padding: 0 var(--space-sm);
@@ -345,9 +345,10 @@ header {
 }
 
 .add-portfolio-form .btn {
-  height: 36px;
+  height: 40px;
   font-size: var(--text-small);
   padding: 0 var(--space-sm);
+  border-radius: var(--radius-sm);
 }
 
 /* ============================================================
@@ -369,9 +370,8 @@ header {
 .category-header h3 {
   font-family: var(--font-serif);
   font-size: var(--text-h2);
-  font-weight: 500;
-  letter-spacing: 0.04em;
-  text-transform: uppercase;
+  font-weight: 600;
+  letter-spacing: -0.01em;
   color: var(--color-text-primary);
 }
 
@@ -381,13 +381,11 @@ header {
 }
 
 .category-actions .btn {
-  min-height: 32px;
+  min-height: 34px;
   padding: 0 var(--space-sm);
   font-size: var(--text-small);
-  letter-spacing: 0.05em;
-  text-transform: uppercase;
   border: 1px solid var(--color-border);
-  border-radius: var(--radius-sm);
+  border-radius: var(--radius-pill);
   cursor: pointer;
   transition: all 0.2s ease;
 }
@@ -399,19 +397,19 @@ header {
 
 .category-actions .btn-edit-cat:hover {
   background-color: var(--color-primary);
-  color: #181816;
+  color: #0F1117;
   border-color: var(--color-primary);
 }
 
 .category-actions .btn-delete-cat {
   background-color: transparent;
   color: var(--color-danger);
-  border-color: var(--color-danger);
+  border-color: rgba(248, 113, 113, 0.3);
 }
 
 .category-actions .btn-delete-cat:hover {
   background-color: var(--color-danger);
-  color: #181816;
+  color: #0F1117;
 }
 
 .module-list {
@@ -436,13 +434,14 @@ header {
   background: var(--color-bg-surface);
   border: 1px solid var(--color-border);
   border-radius: var(--radius-md);
-  box-shadow: none;
-  transition: all 0.2s ease-in-out;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+  transition: all 0.2s ease;
   cursor: pointer;
 }
 
 .module-card:hover {
-  border-color: var(--color-text-primary);
+  border-color: rgba(240, 243, 249, 0.3);
+  transform: translateY(-1px);
 }
 
 .module-card:has(input:checked) {
@@ -451,16 +450,17 @@ header {
 }
 
 .module-card input[type="checkbox"] {
-  width: 18px;
-  height: 18px;
+  width: 20px;
+  height: 20px;
   accent-color: var(--color-primary);
+  border-radius: 6px;
   cursor: pointer;
   flex-shrink: 0;
   margin: 0;
 }
 
 .module-card input[type="checkbox"]:focus-visible {
-  outline: 1px solid var(--color-primary);
+  outline: 2px solid var(--color-primary);
   outline-offset: 2px;
 }
 
@@ -492,10 +492,12 @@ header {
   cursor: default;
   background: var(--color-bg-surface);
   border-color: var(--color-border);
+  transform: none;
 }
 
 .module-card.admin-mode:hover {
   border-color: var(--color-border);
+  transform: none;
 }
 
 .module-card .admin-actions {
@@ -508,10 +510,8 @@ header {
   min-height: 32px;
   padding: 0 var(--space-sm);
   font-size: var(--text-small);
-  letter-spacing: 0.05em;
-  text-transform: uppercase;
   border: 1px solid var(--color-border);
-  border-radius: var(--radius-sm);
+  border-radius: var(--radius-pill);
   cursor: pointer;
   transition: all 0.2s ease;
 }
@@ -523,19 +523,19 @@ header {
 
 .module-card .admin-actions .btn-edit:hover {
   background-color: var(--color-primary);
-  color: #181816;
+  color: #0F1117;
   border-color: var(--color-primary);
 }
 
 .module-card .admin-actions .btn-delete {
   background-color: transparent;
   color: var(--color-danger);
-  border-color: var(--color-danger);
+  border-color: rgba(248, 113, 113, 0.3);
 }
 
 .module-card .admin-actions .btn-delete:hover {
   background-color: var(--color-danger);
-  color: #181816;
+  color: #0F1117;
 }
 
 /* ============================================================
@@ -567,7 +567,7 @@ header {
 
 #category-controls input {
   flex: 1 1 150px;
-  height: 44px;
+  height: 42px;
   border: 1px solid var(--color-border);
   border-radius: var(--radius-sm);
   padding: 0 var(--space-sm);
@@ -584,13 +584,13 @@ header {
 }
 
 #category-controls input:focus-visible {
-  outline: 1px solid var(--color-primary);
+  outline: 2px solid var(--color-primary);
   outline-offset: 2px;
 }
 
 #category-controls .btn {
   flex: 0 0 auto;
-  height: 44px;
+  height: 42px;
 }
 
 #add-module-form {
@@ -606,7 +606,7 @@ header {
 
 #add-module-form input,
 #add-module-form select {
-  height: 44px;
+  height: 42px;
   border: 1px solid var(--color-border);
   border-radius: var(--radius-sm);
   padding: 0 var(--space-sm);
@@ -634,21 +634,19 @@ header {
 
 #add-module-form input:focus-visible,
 #add-module-form select:focus-visible {
-  outline: 1px solid var(--color-primary);
+  outline: 2px solid var(--color-primary);
   outline-offset: 2px;
 }
 
 #add-module-form .btn {
   flex: 0 0 auto;
-  height: 44px;
+  height: 42px;
   background-color: var(--color-primary);
-  color: #181816;
+  color: #0F1117;
   border: 1px solid var(--color-primary);
   padding: 0 var(--space-md);
-  border-radius: var(--radius-sm);
-  font-weight: 500;
-  letter-spacing: 0.05em;
-  text-transform: uppercase;
+  border-radius: var(--radius-pill);
+  font-weight: 600;
   cursor: pointer;
   transition: all 0.2s ease;
 }
@@ -665,27 +663,26 @@ header {
   align-items: center;
   justify-content: center;
   padding: var(--space-xs) var(--space-md);
-  border-radius: var(--radius-sm);
+  border-radius: var(--radius-pill);
   font-family: var(--font-sans);
-  font-weight: 500;
+  font-weight: 600;
   font-size: var(--text-small);
-  letter-spacing: 0.05em;
-  text-transform: uppercase;
+  letter-spacing: var(--tracking-wide);
   border: 1px solid var(--color-border);
   cursor: pointer;
-  transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease;
   text-decoration: none;
-  min-height: 44px;
+  min-height: 42px;
 }
 
 .btn:focus-visible {
-  outline: 1px solid var(--color-primary);
+  outline: 2px solid var(--color-primary);
   outline-offset: 2px;
 }
 
 .btn-primary {
   background-color: var(--color-primary);
-  color: #181816;
+  color: #0F1117;
   border-color: var(--color-primary);
 }
 
@@ -696,23 +693,23 @@ header {
 .btn-success {
   background-color: transparent;
   color: var(--color-success);
-  border-color: var(--color-success);
+  border-color: rgba(110, 231, 183, 0.4);
 }
 
 .btn-success:hover {
   background-color: var(--color-success);
-  color: #181816;
+  color: #0F1117;
 }
 
 .btn-danger {
   background-color: transparent;
   color: var(--color-danger);
-  border-color: var(--color-danger);
+  border-color: rgba(248, 113, 113, 0.4);
 }
 
 .btn-danger:hover {
   background-color: var(--color-danger);
-  color: #181816;
+  color: #0F1117;
 }
 
 .btn-secondary {
@@ -735,7 +732,7 @@ header {
    ============================================================ */
 #client-dialog {
   border: 1px solid var(--color-border);
-  border-radius: var(--radius-md);
+  border-radius: var(--radius-lg);
   padding: var(--space-lg);
   max-width: 420px;
   width: 90%;
@@ -750,14 +747,14 @@ header {
 }
 
 #client-dialog::backdrop {
-  background-color: rgba(0, 0, 0, 0.65);
-  backdrop-filter: blur(4px);
+  background-color: rgba(0, 0, 0, 0.7);
+  backdrop-filter: blur(6px);
 }
 
 #client-dialog h3 {
   font-family: var(--font-serif);
   font-size: var(--text-h2);
-  letter-spacing: 0.03em;
+  letter-spacing: -0.01em;
   margin-bottom: var(--space-sm);
   color: var(--color-text-primary);
 }
@@ -769,16 +766,14 @@ header {
 #client-dialog .form-group label {
   display: block;
   font-size: var(--text-small);
-  font-weight: 500;
-  letter-spacing: var(--tracking-wide);
-  text-transform: uppercase;
+  font-weight: 600;
   margin-bottom: var(--space-xs);
   color: var(--color-text-secondary);
 }
 
 #client-dialog .form-group input {
   width: 100%;
-  height: 44px;
+  height: 42px;
   border: 1px solid var(--color-border);
   border-radius: var(--radius-sm);
   padding: 0 var(--space-sm);
@@ -795,7 +790,7 @@ header {
 }
 
 #client-dialog .form-group input:focus-visible {
-  outline: 1px solid var(--color-primary);
+  outline: 2px solid var(--color-primary);
   outline-offset: 2px;
 }
 
@@ -819,8 +814,6 @@ header {
   border-top: 1px solid var(--color-border);
   text-align: center;
   font-size: var(--text-small);
-  letter-spacing: var(--tracking-wide);
-  text-transform: uppercase;
   color: var(--color-text-secondary);
 }
 
@@ -979,23 +972,22 @@ header {
   border: 1px solid var(--color-border);
   color: var(--color-text-primary);
   padding: var(--space-xs) var(--space-sm);
-  border-radius: var(--radius-sm);
+  border-radius: var(--radius-pill);
   cursor: pointer;
   font-size: var(--text-small);
-  letter-spacing: 0.05em;
-  text-transform: uppercase;
+  font-weight: 600;
   transition: all 0.2s ease;
-  min-height: 44px;
+  min-height: 42px;
 }
 .btn-rates:hover {
   background-color: var(--color-primary);
-  color: #181816;
+  color: #0F1117;
   border-color: var(--color-primary);
 }
 
 dialog {
   border: 1px solid var(--color-border);
-  border-radius: var(--radius-md);
+  border-radius: var(--radius-lg);
   padding: var(--space-lg);
   max-width: 600px;
   width: 90%;
@@ -1009,8 +1001,8 @@ dialog {
   margin: 0;
 }
 dialog::backdrop {
-  background-color: rgba(0, 0, 0, 0.65);
-  backdrop-filter: blur(4px);
+  background-color: rgba(0, 0, 0, 0.7);
+  backdrop-filter: blur(6px);
 }
 .dialog-header {
   display: flex;
@@ -1023,7 +1015,6 @@ dialog::backdrop {
 .dialog-header h2 {
   font-family: var(--font-serif);
   font-size: var(--text-h2);
-  letter-spacing: 0.03em;
   color: var(--color-text-primary);
 }
 .dialog-close {
@@ -1053,9 +1044,8 @@ dialog::backdrop {
   border: 1px solid var(--color-border);
   border-radius: var(--radius-md);
   color: var(--color-text-primary);
-  font-weight: 500;
+  font-weight: 600;
   font-size: var(--text-body);
-  letter-spacing: 0.03em;
   cursor: pointer;
   transition: all 0.2s ease;
   text-align: center;
@@ -1063,7 +1053,7 @@ dialog::backdrop {
 }
 .pf-name-btn:hover {
   background: var(--color-primary);
-  color: #181816;
+  color: #0F1117;
   border-color: var(--color-primary);
 }
 
@@ -1072,7 +1062,7 @@ dialog::backdrop {
   flex-direction: column;
   background: var(--color-bg-surface);
   border: 1px solid var(--color-border);
-  border-radius: var(--radius-sm);
+  border-radius: var(--radius-md);
   box-shadow: var(--shadow-floating);
   padding: var(--space-xs) 0;
   min-width: 160px;
@@ -1099,7 +1089,7 @@ dialog::backdrop {
   color: var(--color-danger);
 }
 .pf-context-menu .pf-menu-item.danger:hover {
-  background: rgba(209, 124, 111, 0.15);
+  background: rgba(248, 113, 113, 0.15);
 }
 
 .pf-actions-container {
@@ -1130,11 +1120,10 @@ dialog::backdrop {
   padding: var(--space-xs) var(--space-sm);
   background: var(--color-bg-surface);
   border: 1px solid var(--color-border);
-  border-radius: var(--radius-sm);
+  border-radius: var(--radius-pill);
   color: var(--color-text-primary);
   font-size: var(--text-small);
-  font-weight: 500;
-  letter-spacing: 0.03em;
+  font-weight: 600;
   cursor: pointer;
   transition: all 0.2s ease;
   display: inline-flex;
@@ -1150,11 +1139,11 @@ dialog::backdrop {
 
 .pf-action-btn.danger {
   color: var(--color-danger);
-  border-color: var(--color-danger);
+  border-color: rgba(248, 113, 113, 0.3);
 }
 
 .pf-action-btn.danger:hover {
-  background: rgba(209, 124, 111, 0.15);
+  background: rgba(248, 113, 113, 0.15);
   border-color: var(--color-danger);
 }
 
@@ -1176,7 +1165,7 @@ dialog::backdrop {
 .pf-edit-form input,
 .add-portfolio-form-inline input {
   flex: 1 1 150px;
-  height: 36px;
+  height: 38px;
   border: 1px solid var(--color-border);
   border-radius: var(--radius-sm);
   padding: 0 var(--space-sm);
@@ -1187,7 +1176,7 @@ dialog::backdrop {
 
 .pf-edit-form .btn,
 .add-portfolio-form-inline .btn {
-  height: 36px;
+  height: 38px;
   font-size: var(--text-small);
   padding: 0 var(--space-sm);
 }
@@ -1210,15 +1199,13 @@ dialog::backdrop {
 #rates-dialog .form-group label {
   display: block;
   font-size: var(--text-small);
-  font-weight: 500;
-  letter-spacing: var(--tracking-wide);
-  text-transform: uppercase;
+  font-weight: 600;
   margin-bottom: var(--space-xs);
   color: var(--color-text-secondary);
 }
 #rates-dialog .form-group input {
   width: 100%;
-  height: 44px;
+  height: 42px;
   border: 1px solid var(--color-border);
   border-radius: var(--radius-sm);
   padding: 0 var(--space-sm);
@@ -1304,7 +1291,6 @@ dialog::backdrop {
    MEJORAS RESPONSIVE PARA MÓVIL
    ============================================================ */
 
-/* Tablets y pantallas medianas */
 @media (max-width: 1023px) {
   .content-grid {
     grid-template-columns: 1fr;
@@ -1316,7 +1302,6 @@ dialog::backdrop {
   }
 }
 
-/* Móviles grandes (hasta 768px) */
 @media (max-width: 767px) {
   .content-grid {
     gap: var(--space-md);
@@ -1392,7 +1377,6 @@ dialog::backdrop {
   }
 }
 
-/* Móviles pequeños (hasta 640px) */
 @media (max-width: 640px) {
   header {
     flex-direction: column;
@@ -1429,7 +1413,6 @@ dialog::backdrop {
   }
 }
 
-/* Móviles muy pequeños (hasta 480px) */
 @media (max-width: 480px) {
   body {
     padding: var(--space-sm);
@@ -1461,7 +1444,6 @@ dialog::backdrop {
     min-width: 80px;
     font-size: 0.85rem;
   }
-  /* Tarjetas de módulo en móvil - más espacio y textos legibles */
   .module-card {
     padding: var(--space-sm) var(--space-md);
     flex-wrap: wrap;
@@ -1488,7 +1470,6 @@ dialog::backdrop {
     height: 22px;
     flex-shrink: 0;
   }
-  /* Formulario agregar módulo */
   #add-module-form input,
   #add-module-form select,
   #add-module-form textarea {
@@ -1500,7 +1481,6 @@ dialog::backdrop {
     width: 100%;
     font-size: 1rem;
   }
-  /* Menú contextual de portafolios en móvil (overlay centrado) */
   .pf-context-menu {
     position: fixed !important;
     top: 50% !important;
@@ -1534,7 +1514,6 @@ dialog::backdrop {
   }
 }
 
-/* Móviles extra pequeños (hasta 400px) */
 @media (max-width: 400px) {
   body {
     padding: var(--space-xs);
@@ -1556,10 +1535,6 @@ dialog::backdrop {
     font-size: 0.9rem;
   }
 }
-
-/* ============================================================
-   ARREGLO PARA PRECIOS EN MÓVIL - PONERLOS A LA DERECHA
-   ============================================================ */
 
 .module-card:not(.admin-mode) .module-price {
   margin-left: auto;
